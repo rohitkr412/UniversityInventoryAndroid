@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.averg.logicuniversityapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:windowSoftInputMode="adjustResize"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Clerk_MainActivity" />
+        <activity android:name=".User_MainActivity" />
+        <activity android:name=".User_RequestFormActivity" />
+        <activity android:name=".User_RequestItemDetailsActivity" />
+        <activity android:name=".Clerk_WeeklyCollectionListActivity" />
+        <activity android:name=".Clerk_ItemDetailsActivity" />
+        <activity android:name=".Clerk_RequisitionOrderSearchActivity" />
+        <activity android:name=".Clerk_OrdersByDept_Activity" />
+        <activity android:name=".User_RequestSummaryActivity" />
+        <activity android:name=".DebugActivity" />
+        <activity android:name=".Clerk_RequisitionOrder_ItemDetailsActivity" />
+        <activity android:name=".ClerkAdjustmentInventoryActivity" />
+        <activity android:name=".ClerkAdjustmentForm" />
+        <activity android:name=".Request_Cart" />
+        <activity android:name=".NewRequestActivity" />
+        <activity android:name=".RequestConfirm" />
+        <activity android:name=".DisbursementList" />
+        <activity android:name=".AcknowledgeDisbursement" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".Budget" />
+        <activity android:name=".ChangeCollectionpoint" />
+        <activity android:name=".Departmenthead" />
+        <activity android:name=".DepartmentRep" />
+        <activity android:name=".pendingrequests" />
+        <activity android:name=".RequisitionDetail" />
+        <activity android:name=".ViewCollectionhistory" />
+        <activity android:name=".Clerk_WeeklyCollectionListDetailActivity" />
+        <activity android:name=".Clerk_SortingActivity" />
+        <activity android:name=".Clerk_SortingListActivity" />
+        <activity android:name=".Clerk_ReallocateActivity"></activity>
+    </application>
+
+</manifest>
