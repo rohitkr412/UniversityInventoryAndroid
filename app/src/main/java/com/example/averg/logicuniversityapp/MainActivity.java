@@ -21,6 +21,7 @@ import Utilities.JSONParser;
 
 public class MainActivity extends Activity {
 
+    Button loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         // Setup onclicklistener for the login button
-        final Button loginButton = findViewById(R.id.loginButton);
+        loginButton = findViewById(R.id.loginButton);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loginButton.setText("Please wait...");
+                loginButton.setEnabled(false);
                 LoginTask loginTask = new LoginTask();
                 loginTask.execute();
             }
@@ -55,6 +58,8 @@ public class MainActivity extends Activity {
         @Override
         protected void onPostExecute(JSONObject result) {
             try {
+                loginButton.setEnabled(true);
+                loginButton.setText("Login");
                 // Login is successful
 
                 // Save token in Constants
@@ -68,16 +73,16 @@ public class MainActivity extends Activity {
                     startActivity(i);
                 }
 
-                else if(role.equals(Constants.ROLES_EMPLOYEE)) {
+                if(role.equals(Constants.ROLES_EMPLOYEE)) {
                     Intent i = new Intent(getApplicationContext(), User_MainActivity.class);
                     startActivity(i);
                 }
-                else if(role.equals(Constants.ROLES_DEPARTMENT_REPRESENTATIVE))
+                if(role.equals(Constants.ROLES_DEPARTMENT_REPRESENTATIVE))
                 {
                     Intent i = new Intent(getApplicationContext(), DepartmentRep.class);
                     startActivity(i);
                 }
-                else if(role.equals(Constants.ROLES_DEPARTMENT_HEAD))
+                else if(role.equals(Constants.ROLES_DEPARTMENT_HEAD) || role.equals(Constants.ROLES_DEPARTMENT_TEMP_HEAD))
                 {
                     Intent i = new Intent(getApplicationContext(), Departmenthead.class);
                     startActivity(i);
@@ -85,7 +90,7 @@ public class MainActivity extends Activity {
 
             } catch (Exception ex) {
                 // Login failed
-                Toast t = Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT);
+                Toast t = Toast.makeText(getApplicationContext(), "Login failed. Please try again", Toast.LENGTH_SHORT);
                 t.show();
                 ex.printStackTrace();
             }
